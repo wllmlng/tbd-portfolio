@@ -49,13 +49,25 @@ class NestedCheckboxesClass {
                 li.appendChild(nestedList);
             }
         }
-
-
-
         return ul
     };
-    addCheckboxesListeners(){};
-    updateParentCheckbox(){};
+
+    addCheckboxesListeners(){
+        const container = document.getElementById(this.root);
+        container?.addEventListener('change', (event) => {
+            const target = event.target as HTMLInputElement;
+            if (target.type === 'checkbox'){
+                const isChecked = target.checked
+                this.updateChildCheckbox(target.parentNode as HTMLLabelElement, isChecked)
+            }
+        })
+    };
+    updateChildCheckbox(parentNode: any, isChecked: boolean){
+        const nestedInputs = parentNode.querySelectorAll('input[type="checkbox"]')
+        nestedInputs.forEach((input: HTMLInputElement) => {
+            input.checked = isChecked;
+        })
+    };
     getSelectionOptions(){};
     init(){
         const container = document.getElementById(this.root);
@@ -70,6 +82,7 @@ const NestedCheckboxes = () => {
     
     useEffect(() => {
         const nestedCheckboxes = new NestedCheckboxesClass(mockData, 'nestedCheckboxes');
+        nestedCheckboxes.addCheckboxesListeners()
         nestedCheckboxes.init();
     },[])
 

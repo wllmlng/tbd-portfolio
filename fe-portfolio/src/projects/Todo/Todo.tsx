@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styles from './Todo.module.scss';
+import {useDebounce} from '../../common/hooks'
 
 const Todo = () => {
   const [todos, setTodos] = useState<string[]>([]); 
   const [newTodo, setNewTodo] = useState<string>(''); 
 
-  
+  const debouncedValue  = useDebounce(newTodo, 1000)
+
   const addTodo = () => {
     if (newTodo.trim()) {  
       setTodos((prev)=>[...prev, newTodo]); 
