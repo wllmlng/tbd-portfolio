@@ -157,7 +157,7 @@ function ApiHealthDashboard() {
     },[statusSelect, data])
 
     return (
-        <div className={styles.ApiHealth}>
+        <div className={styles.healthDashboard}>
             <h1>API Health Dashboard</h1>
             <div className={classNames(styles.toggleContainer, 'generic-container')}>
                 <div className={styles.dropdownContainer}>

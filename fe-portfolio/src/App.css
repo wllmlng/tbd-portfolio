@@ -5,13 +5,9 @@
   padding: 0;
   display: grid;
   grid-template-columns: 350px 1fr;
+  text-align: center;
+  background: #dbdbdb69;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 
 nav{
   background-color: rgb(188, 188, 188);
@@ -22,31 +18,20 @@ nav ul li {
   list-style-type: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.generic-container{
+  background: #ffffff;
+  border: 1px solid lightgray;
+  border-radius: 6px;
 }
 
-.App-header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.font-light{
+  color: grey;  
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sub-title{
+  color: #514e4e;
+  font-size: 20px;
+  padding: 12px;
+  margin: 0;
+  display: flex
 }

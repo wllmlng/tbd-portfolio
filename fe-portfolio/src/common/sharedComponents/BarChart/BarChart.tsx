@@ -22,7 +22,7 @@ import styles from './BarChart.module.scss'
 
 
 interface Props {
-    setStatusSelect: (val:string) => void;
+    setStatusSelect: (val:string | null) => void;
     data: { status_code: number }[];
     loading: boolean;
     statusSelect: string | null | any;
@@ -124,9 +124,8 @@ function BarChart({statusSelect, setStatusSelect, data, loading}: Props) {
             point: {
                 events: {
                     click: function () {
-                        setStatusSelect((prev: string | null) => {
-                            return (prev === (this as any).category ? null : (this as any).category as string);
-                        }); 
+                        const updatedStatus: string | null = (statusSelect === (this as any).category ? null : (this as any).category as string);
+                        setStatusSelect(updatedStatus); 
                     },
                 },
             },            
@@ -193,9 +192,8 @@ function BarChart({statusSelect, setStatusSelect, data, loading}: Props) {
             point: {
                 events: {
                     click: function () {
-                        setStatusSelect((prev: string | null) => {
-                            return (prev === (this as any).category ? null : (this as any).category as string);
-                        }); 
+                        const updatedStatus: string | null = (statusSelect === (this as any).category ? null : (this as any).category as string);
+                        setStatusSelect(updatedStatus); 
                     },
                 },
             },            
