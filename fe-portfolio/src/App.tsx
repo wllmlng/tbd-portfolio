@@ -4,7 +4,7 @@ import './App.css';
 import Todo from './projects/Todo/Todo';
 import NestedCheckboxes from './projects/NestedCheckboxes/NestedCheckboxes';
 import Carousel from './projects/Carousel/Carousel';
-
+import ApiHealthDashboard from './projects/ApiHealthDashboard/ApiHealthDashboard';
 function App() {
   return (
     <div>
@@ -21,6 +21,9 @@ function App() {
               <li>
                 <Link to="/carousel">Carousel</Link>
               </li>
+              <li>
+                <Link to="/apiHealthDashboard">ApiHealthDashboard</Link>
+              </li>
             </ul>
           </nav>
 
@@ -28,6 +31,7 @@ function App() {
             <Route path="/todo" element={<Todo />} />
             <Route path="/nestedCheckboxes" element={<NestedCheckboxes />} />
             <Route path="/carousel" element={<Carousel />} />
+            <Route path="/apiHealthDashboard" element={<ApiHealthDashboard />} />
           </Routes>
         </div>
       </Router>
