@@ -4,7 +4,6 @@
   height: 100vh;
   padding: 0;
   display: grid;
-  grid-template-columns: 350px 1fr;
   text-align: center;
   background: #dbdbdb69;
 }
@@ -34,4 +33,30 @@ nav ul li {
   padding: 12px;
   margin: 0;
   display: flex
+}
+
+.nav {
+  position: fixed;
+  right: -250px; 
+  transition: right 0.3s ease; 
+  width: 250px; 
+  background-color: #fff; 
+  height: 100%; 
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
+}
+
+.slide-in {
+  right: 0; 
+}
+
+.slide-out {
+  right: -250px; 
+}
+
+.nav-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px; 
+  z-index: 1001; 
 }

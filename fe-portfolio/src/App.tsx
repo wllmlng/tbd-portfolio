@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; // Import useState
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 import Todo from './projects/Todo/Todo';
@@ -6,11 +6,19 @@ import NestedCheckboxes from './projects/NestedCheckboxes/NestedCheckboxes';
 import Carousel from './projects/Carousel/Carousel';
 import ApiHealthDashboard from './projects/ApiHealthDashboard/ApiHealthDashboard';
 function App() {
+  const [isNavVisible, setIsNavVisible] = useState(false); // State for nav visibility
+  const toggleNav = () => {
+    setIsNavVisible(!isNavVisible); // Toggle nav visibility
+  };
+
   return (
     <div>
       <Router>
         <div className="App">
-          <nav>
+          <button onClick={toggleNav} className="nav-toggle">
+            {isNavVisible ? 'Close' : 'Open'} Menu
+          </button>
+          <nav className={`nav ${isNavVisible ? 'slide-in' : 'slide-out'}`}>
             <ul>
               <li>
                 <Link to="/todo">Todo</Link>
@@ -35,7 +43,6 @@ function App() {
           </Routes>
         </div>
       </Router>
-
     </div>
   );
 }
